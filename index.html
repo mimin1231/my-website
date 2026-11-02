@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOHAMMAD ARMIN BIN ERAMLEE - Personal Homepage</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
+              sans: ["Inter", "Helvetica Neue", "Arial", "sans-serif"],
+            },
+            colors: {
+              dark: {
+                bg: "#0f172a" /* Latar belakang gelap (Slate 900) */,
+                card: "#1e293b" /* Kad gelap (Slate 800) */,
+                border: "#334155" /* Border Slate 700 */,
+                accent: "#3b82f6" /* Biru moden */,
+                accentHover: "#60a5fa",
+                textMain: "#f8fafc" /* Teks cerah */,
+                textMuted: "#94a3b8" /* Teks kelabu */,
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #0f172a;
+        color: #f8fafc;
+      }
+      /* Custom Glass & Border Card */
+      .enhanced-card {
+        background-color: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+      .enhanced-card:hover {
+        transform: translateY(-4px);
+        box-shadow:
+          0 10px 25px -5px rgba(0, 0, 0, 0.3),
+          0 8px 10px -6px rgba(59, 130, 246, 0.1);
+        border-color: rgba(59, 130, 246, 0.4);
+      }
+      /* Cursor Blinking Effect */
+      .typing-cursor::after {
+        content: "|";
+        animation: blink 1s infinite;
+        color: #60a5fa;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      /* Nav Link Underline Transition */
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #60a5fa;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans antialiased min-h-screen flex flex-col selection:bg-blue-500 selection:text-white"
+  >
+    <!-- Navigation Bar -->
+    <header
+      class="bg-slate-900/90 backdrop-blur-md text-white border-b border-slate-800 sticky top-0 z-50"
+    >
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-16">
+          <!-- Brand / Short Title -->
+          <a
+            href="#home"
+            class="font-serif font-bold text-lg tracking-wide hover:text-blue-400 transition-colors"
+          >
+            ARMIN ERAMLEE
+          </a>
+
+          <!-- Desktop Nav Links -->
+          <nav
+            class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300"
+          >
+            <a
+              href="#home"
+              class="hover:text-blue-400 transition-colors nav-link py-1"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="hover:text-blue-400 transition-colors nav-link py-1"
+              >About Me</a
+            >
+            <a
+              href="#education"
+              class="hover:text-blue-400 transition-colors nav-link py-1"
+              >Education</a
+            >
+            <a
+              href="#skills"
+              class="hover:text-blue-400 transition-colors nav-link py-1"
+              >Skills</a
+            >
+            <a
+              href="#hobbies"
+              class="hover:text-blue-400 transition-colors nav-link py-1"
+              >Hobbies</a
+            >
+            <a
+              href="#contact"
+              class="hover:text-blue-400 transition-colors nav-link py-1"
+              >Contact</a
+            >
+          </nav>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobileMenuBtn"
+            class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none"
+            aria-label="Toggle Navigation"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-4 py-3 space-y-2 text-sm font-medium"
+      >
+        <a
+          href="#home"
+          class="block py-2 text-slate-300 hover:text-blue-400 mobile-link"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="block py-2 text-slate-300 hover:text-blue-400 mobile-link"
+          >About Me</a
+        >
+        <a
+          href="#education"
+          class="block py-2 text-slate-300 hover:text-blue-400 mobile-link"
+          >Education</a
+        >
+        <a
+          href="#skills"
+          class="block py-2 text-slate-300 hover:text-blue-400 mobile-link"
+          >Skills</a
+        >
+        <a
+          href="#hobbies"
+          class="block py-2 text-slate-300 hover:text-blue-400 mobile-link"
+          >Hobbies</a
+        >
+        <a
+          href="#contact"
+          class="block py-2 text-slate-300 hover:text-blue-400 mobile-link"
+          >Contact</a
+        >
+      </div>
+    </header>
+
+    <!-- Hero / Profile Header Section -->
+    <section
+      id="home"
+      class="border-b border-slate-800/80 py-16 md:py-20 relative overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950"
+    >
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <!-- Dynamic Greeting Badge -->
+        <div class="inline-block mb-4">
+          <span
+            id="dynamicGreeting"
+            class="text-xs font-semibold tracking-wider uppercase bg-blue-950/80 text-blue-400 px-4 py-1.5 rounded-full border border-blue-800/60 shadow-inner"
+          >
+            Welcome
+          </span>
+        </div>
+
+        <!-- Profile Avatar Badge -->
+        <div class="inline-block mb-5">
+          <div
+            class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-slate-800/80 border-2 border-blue-500/30 mx-auto flex items-center justify-center text-blue-400 shadow-xl shadow-blue-500/10"
+          >
+            <i class="fa-solid fa-user-graduate text-5xl"></i>
+          </div>
+        </div>
+
+        <!-- Full Name -->
+        <h1
+          class="font-serif text-2xl sm:text-4xl font-bold text-white uppercase tracking-wide mb-3"
+        >
+          Mohammad Armin bin Eramlee
+        </h1>
+
+        <!-- Professional Subtitle with Typing Animation -->
+        <p class="text-slate-400 font-medium text-base sm:text-lg mb-1 h-7">
+          <span id="typingText" class="typing-cursor"></span>
+        </p>
+        <p class="text-blue-400 font-medium text-base">
+          Universiti Malaysia Sarawak (UNIMAS)
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-4xl mx-auto px-4 py-12 space-y-8 flex-grow">
+      <!-- About Me Section -->
+      <section id="about" class="enhanced-card p-6 sm:p-8">
+        <div
+          class="flex items-center gap-3 border-b border-slate-700/60 pb-3 mb-4"
+        >
+          <i class="fa-solid fa-user text-blue-400 text-xl"></i>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-white">
+            About Me
+          </h2>
+        </div>
+        <p class="text-slate-300 leading-relaxed text-base sm:text-lg">
+          Hello! My name is
+          <strong class="text-white">Mohammad Armin bin Eramlee</strong>. I am a
+          university student at
+          <strong class="text-white"
+            >Universiti Malaysia Sarawak (UNIMAS)</strong
+          >. I have a passion for technology, self-improvement, and picking up
+          new skills. Through hands-on experience and education, I strive to
+          grow continuously and build a strong future.
+        </p>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="enhanced-card p-6 sm:p-8">
+        <div
+          class="flex items-center gap-3 border-b border-slate-700/60 pb-3 mb-4"
+        >
+          <i class="fa-solid fa-graduation-cap text-blue-400 text-xl"></i>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-white">
+            My Education
+          </h2>
+        </div>
+
+        <ul class="space-y-4 text-slate-300">
+          <li class="flex items-start gap-3">
+            <span class="text-blue-400/70 mt-1">
+              <i class="fa-solid fa-school text-sm"></i>
+            </span>
+            <div>
+              <strong class="text-white">Primary School:</strong> SK Rugading
+              Tuaran, Sabah
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-400/70 mt-1">
+              <i class="fa-solid fa-building-columns text-sm"></i>
+            </span>
+            <div>
+              <strong class="text-white">Secondary School:</strong> Sekolah
+              Menengah Kebangsaan Pekan Telipok, Sabah
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-400/70 mt-1">
+              <i class="fa-solid fa-university text-sm"></i>
+            </span>
+            <div>
+              <strong class="text-white">University:</strong> Universiti
+              Malaysia Sarawak (UNIMAS)
+              <span class="text-sm text-slate-400 block sm:inline sm:ml-1">
+                (Bachelor in Network Computing with Honours)
+              </span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="enhanced-card p-6 sm:p-8">
+        <div
+          class="flex items-center gap-3 border-b border-slate-700/60 pb-3 mb-4"
+        >
+          <i class="fa-solid fa-gears text-blue-400 text-xl"></i>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-white">
+            Skills & Knowledge
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <h3
+              class="font-bold text-slate-200 text-base mb-3 border-b border-slate-700/40 pb-1"
+            >
+              Technical Skills
+            </h3>
+            <ul class="space-y-2 text-slate-300 text-sm list-disc list-inside">
+              <li>Networking Architecture & Fundamentals</li>
+              <li>TCP/IP & Routing Protocols</li>
+              <li>Basic System Administration (Linux/Windows)</li>
+              <li>Computer Hardware & Troubleshooting</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              class="font-bold text-slate-200 text-base mb-3 border-b border-slate-700/40 pb-1"
+            >
+              Soft Skills
+            </h3>
+            <ul class="space-y-2 text-slate-300 text-sm list-disc list-inside">
+              <li>Analytical Problem Solving</li>
+              <li>Teamwork & Collaboration</li>
+              <li>Continuous Learning & Adaptability</li>
+              <li>Leadership and Time Management</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hobbies Section -->
+      <section id="hobbies" class="enhanced-card p-6 sm:p-8">
+        <div
+          class="flex items-center gap-3 border-b border-slate-700/60 pb-3 mb-4"
+        >
+          <i class="fa-solid fa-icons text-blue-400 text-xl"></i>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-white">
+            Hobbies & Interests
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 text-center">
+          <!-- 1. Handball -->
+          <div
+            class="p-5 bg-slate-800/40 border border-slate-700/50 rounded-lg hover:border-blue-500/40 transition-colors"
+          >
+            <i class="fa-solid fa-volleyball text-blue-400 text-3xl mb-3"></i>
+            <h3 class="font-bold text-white text-sm">Handball</h3>
+          </div>
+
+          <!-- 2. Football -->
+          <div
+            class="p-5 bg-slate-800/40 border border-slate-700/50 rounded-lg hover:border-blue-500/40 transition-colors"
+          >
+            <i class="fa-solid fa-futbol text-blue-400 text-3xl mb-3"></i>
+            <h3 class="font-bold text-white text-sm">Football</h3>
+          </div>
+
+          <!-- 3. Gaming -->
+          <div
+            class="p-5 bg-slate-800/40 border border-slate-700/50 rounded-lg hover:border-blue-500/40 transition-colors"
+          >
+            <i class="fa-solid fa-gamepad text-blue-400 text-3xl mb-3"></i>
+            <h3 class="font-bold text-white text-sm">Gaming</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="enhanced-card p-6 sm:p-8">
+        <div
+          class="flex items-center gap-3 border-b border-slate-700/60 pb-3 mb-4"
+        >
+          <i class="fa-solid fa-envelope text-blue-400 text-xl"></i>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-white">
+            Contact
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+              If you would like to connect or have any inquiries, feel free to
+              send a message using this form or contact me directly.
+            </p>
+            <div class="space-y-3 text-sm text-slate-300">
+              <p>
+                <strong class="text-white">Institution:</strong> Universiti
+                Malaysia Sarawak (UNIMAS)
+              </p>
+              <p>
+                <strong class="text-white">Faculty:</strong> Computer Science &
+                Information Technology
+              </p>
+              <p>
+                <strong class="text-white">Location:</strong> Sarawak, Malaysia
+              </p>
+            </div>
+          </div>
+
+          <form id="contactForm" class="space-y-4">
+            <div>
+              <label
+                class="block text-xs font-bold uppercase text-slate-400 mb-1"
+                >Name</label
+              >
+              <input
+                type="text"
+                required
+                class="w-full px-3.5 py-2 bg-slate-900/80 border border-slate-700 rounded-md text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-bold uppercase text-slate-400 mb-1"
+                >Email</label
+              >
+              <input
+                type="email"
+                required
+                class="w-full px-3.5 py-2 bg-slate-900/80 border border-slate-700 rounded-md text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-bold uppercase text-slate-400 mb-1"
+                >Message</label
+              >
+              <textarea
+                rows="3"
+                required
+                class="w-full px-3.5 py-2 bg-slate-900/80 border border-slate-700 rounded-md text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 px-4 rounded-md text-sm transition-all shadow-lg shadow-blue-600/20 active:scale-95"
+            >
+              Send Message
+            </button>
+            <div
+              id="formMsg"
+              class="hidden text-xs text-green-400 bg-green-950/60 p-2.5 border border-green-800/80 rounded-md text-center"
+            >
+              Thank you! Your message has been sent.
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button
+      id="backToTopBtn"
+      class="fixed bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-500 text-white w-10 h-10 rounded-full shadow-lg shadow-blue-600/30 flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none hover:scale-110 active:scale-95"
+      aria-label="Back to top"
+    >
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer
+      class="bg-slate-950 text-slate-400 text-xs py-8 border-t border-slate-800/80 mt-12"
+    >
+      <div class="max-w-4xl mx-auto px-4 text-center space-y-2">
+        <p>
+          © <span id="year"></span> Mohammad Armin Bin Eramlee. All Rights
+          Reserved.
+        </p>
+        <p class="text-slate-500">
+          Universiti Malaysia Sarawak (UNIMAS) • Network Computing Student
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // 1. Set dynamic year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // 2. Dynamic Time-of-Day Greeting
+      const greetingEl = document.getElementById("dynamicGreeting");
+      const currentHour = new Date().getHours();
+      let greetingText = "Welcome to my portfolio";
+
+      if (currentHour >= 5 && currentHour < 12) {
+        greetingText = "🌅 Good Morning!";
+      } else if (currentHour >= 12 && currentHour < 17) {
+        greetingText = "☀️ Good Afternoon!";
+      } else if (currentHour >= 17 && currentHour < 21) {
+        greetingText = "🌇 Good Evening!";
+      } else {
+        greetingText = "🌙 Welcome, Night Owl!";
+      }
+      greetingEl.textContent = greetingText;
+
+      // 3. Typing Animation for Subtitle
+      const typingTextEl = document.getElementById("typingText");
+      const words = ["Network Computing"];
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeEffect() {
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+          typingTextEl.textContent = currentWord.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typingTextEl.textContent = currentWord.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 40 : 80;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+          typeSpeed = 2000;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          typeSpeed = 400;
+        }
+
+        setTimeout(typeEffect, typeSpeed);
+      }
+      setTimeout(typeEffect, 500);
+
+      // 4. Back to Top Button Logic
+      const backToTopBtn = document.getElementById("backToTopBtn");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.remove("opacity-0", "pointer-events-none");
+          backToTopBtn.classList.add("opacity-100");
+        } else {
+          backToTopBtn.classList.add("opacity-0", "pointer-events-none");
+          backToTopBtn.classList.remove("opacity-100");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // 5. Mobile Menu Toggle logic
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      document.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // 6. Contact Form simple alert simulation
+      document.getElementById("contactForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const msg = document.getElementById("formMsg");
+        msg.classList.remove("hidden");
+        e.target.reset();
+        setTimeout(() => {
+          msg.classList.add("hidden");
+        }, 4000);
+      });
+    </script>
+  </body>
+</html>
